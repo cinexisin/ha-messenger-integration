@@ -1,0 +1,72 @@
+send:
+  name: Send message (WhatsApp / Telegram)
+  description: Send a message to one or multiple WhatsApp numbers (and/or Telegram). Targets can be +countrycode, one per line.
+  fields:
+    channels:
+      name: Channel
+      description: Send to WhatsApp, Telegram, or both.
+      selector:
+        select:
+          options:
+            - label: WhatsApp
+              value: whatsapp
+            - label: Telegram
+              value: telegram
+            - label: Both
+              value: both
+    targets:
+      name: Targets (WhatsApp numbers)
+      description: One number per line (+countrycode). You can also use commas. Leave empty to use the add-on default number.
+      selector:
+        text:
+          multiline: true
+    title:
+      name: Title
+      selector:
+        text:
+    message:
+      name: Message
+      selector:
+        text:
+          multiline: true
+    camera_entity_id:
+      name: Camera snapshot (optional)
+      description: If selected, the add-on will grab a snapshot and send it immediately with the message.
+      selector:
+        entity:
+          domain: camera
+
+report_on_entities:
+  name: Report devices ON (scheduled checks)
+  description: Creates a message listing only selected entities that are currently ON. Use with a Time trigger in an automation.
+  fields:
+    channels:
+      name: Channel
+      selector:
+        select:
+          options:
+            - label: WhatsApp
+              value: whatsapp
+            - label: Telegram
+              value: telegram
+            - label: Both
+              value: both
+    targets:
+      name: Targets (WhatsApp numbers)
+      description: One number per line (+countrycode). Leave empty to use add-on default number.
+      selector:
+        text:
+          multiline: true
+    title:
+      name: Title
+      selector:
+        text:
+    entities:
+      name: Entities to check
+      selector:
+        entity:
+          multiple: true
+    send_when_none_on:
+      name: Send even if none are ON
+      selector:
+        boolean:
