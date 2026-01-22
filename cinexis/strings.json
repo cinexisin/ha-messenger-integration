@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Cinexis Messenger",
+        "description": "Creates Automation UI services (cinexis.send, cinexis.report_on_entities) and notify services (notify.cinexis...) that forward to your HA Messenger add-on via Supervisor.",
+        "data": {
+          "notify_service": "Notify service name (e.g. cinexis)",
+          "addon_slug": "HA Messenger add-on slug (ends with _ha_messenger)",
+          "default_channel": "Default channel"
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Only one instance is allowed."
+    },
+    "error": {
+      "required": "This field is required.",
+      "invalid_service_name": "Service name must be lowercase letters, numbers, or underscores."
+    }
+  }
+}
